@@ -1,3 +1,29 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Github User Search</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar [formControl]="findControl"
+                   placeholder="Enter GitHub username"
+                   autofocus="true"
+                   (ionClear)="clearSearch()"></ion-searchbar>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content [class.ready]="!!user" [scrollEvents]="true">
+
+  <ion-card *ngIf="!error && !user">
+    <ion-img src="https://www.joshmorony.com/media/2016/11/git-ionic.png"> </ion-img>
+    <ion-card-content>
+      Sample App by Ionic 4 , Angular 7 and Github API.
+      You can search any user on Github by username.
+    </ion-card-content>
+  </ion-card>
+
+  <app-user *ngIf="user"
+            [user]="user"></app-user>
+
+  <app-error *ngIf="error"></app-error>
+
+</ion-content>

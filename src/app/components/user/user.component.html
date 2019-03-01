@@ -1,0 +1,24 @@
+<ion-card>
+  <a class="avatar"
+     [href]="'https://github.com/'+user.login">
+    <ion-img [src]="user.avatar_url" [alt]="user.name"> </ion-img>
+  </a>
+
+  <ion-card-content>
+        <ion-card-subtitle>{{user.name}}</ion-card-subtitle>
+
+        <ion-button color="medium" size="small" [href]="'https://github.com/'+user.login+'?tab=repositories'">
+          <ion-label>{{user.public_repos}} Repos</ion-label>
+        </ion-button>
+
+        <ion-button color="medium" size="small" [href]="'https://gist.github.com/'+user.login">
+          <ion-label>{{user.public_gists}} Gists</ion-label>
+        </ion-button>
+
+        <ion-button color="medium" size="small" [href]="'https://github.com/'+user.login+'/followers'">
+          <ion-label>{{user.followers}} Followers</ion-label>
+        </ion-button>
+
+  </ion-card-content>
+
+</ion-card>

@@ -9,13 +9,22 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { UserComponent } from './components/user/user.component';
+import { ErrorComponent } from './components/error/error.component';
+import { GithubService } from './services/github.service';
+
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UserComponent, ErrorComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
+    GithubService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
